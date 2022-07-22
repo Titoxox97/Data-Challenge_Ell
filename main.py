@@ -13,3 +13,12 @@ with open("C:/Users/matia/OneDrive/Desktop/Ellevation-Data-Question/sample-mcas.
         if row > 0:
             mydict = {}
             mydict[list[0][0]] = row[0]
+
+for i in range(len(list[0])):
+    if i > 0:
+        for j in range(len(list[0])):
+            mydict = {}
+            mydict[list[0][0]] = list[i][0]
+            mydict[list[0][0]] = list[i][1]
+            mydict[list[0][0]] = list[i][2]
+
