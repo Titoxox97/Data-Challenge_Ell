@@ -1,26 +1,11 @@
 import pandas as pd
 import csv
 
-# initialize data frames
-df = pd.read_csv("C:/Users/matia/OneDrive/Desktop/Ellevation-Data-Question/sample-mcas-processed.csv")
-df2 = pd.read_csv("C:/Users/matia/OneDrive/Desktop/Ellevation-Data-Question/sample-mcas.csv")
-
-# open file for reading and establish parameters
-list = []
-with open("C:/Users/matia/OneDrive/Desktop/Ellevation-Data-Question/sample-mcas.csv", 'r') as read_file:
-    data = csv.reader(read_file, delimiter=',')
-    for row in data:
-        list.append(row)
-
-list2 = []
-for i in range(len(list)):
-    if i > 0:
-        mydict = {}
-        for j in range(len(list[0])):
-            mydict[list[0][j]] = list[i][j]
-    list2.append(mydict)
-
-File1 = list2
+def fileTransformer(filepath, filename, newfilepath):
+    print('File starting')
+    filepath_filename = filepath +'/' + filename
+    File1 = pd.read_csv(filepath_filename)
+    File1 = File1.to_dict('records')
 
 # Create data set out of dictionaries that will be used to loop through the data and apply conditions
 
@@ -30,6 +15,7 @@ testds = [{'TestType': 'MCAS ELA', 'Date': '04-01', 'Subject': 'Ela', 'Performan
 
 # Create loop within a loop to filter through conditions and grab the data we are calling
 
+dataset = []
 for i in File1:
     for j in testds:
         newrow = {}
@@ -73,7 +59,11 @@ for i in File1:
             newrow['Score3Value'] = None
         else:
             newrow['Score3Value'] = j['CPI']
+        dataset.append(newrow)
 
+df = pd.DataFrame(dataset)
+df.to_csv(newfilepath + '/' + filename[:-4] + '-processed.csv')
+return df
 
 
 
