@@ -1,16 +1,20 @@
+####### Function that will loop through data and apply the  #######
+####### applicable parameters #######
+
 import pandas as pd
 import csv
 
+
 def filetransformer(filepath, filename, newfilepath):
     print('File starting')
-    filep_filen = filepath +'/' + filename
-    File1 = pd.read_csv(filep_filen)
-    File1 = File1.to_dict('records')
+    filep_filen = filepath + '/' + filename
+    file1 = pd.read_csv(filep_filen)
+    file1 = file1.to_dict('records')
 
 # Create data set out of dictionaries that will be used to loop through the data and apply conditions
 
     dataset = []
-    for i in File1:
+    for i in file1:
         testds = [{'TestType': 'MCAS ELA', 'Date': '04-01', 'Subject': 'Ela', 'Performance': i['eperf2'], 'Scaled Score': i['escaleds'], 'CPI': i['ecpi']},
                   {'TestType': 'MCAS Math', 'Date': '05-01', 'Subject': 'Math', 'Performance': i['mperf2'], 'Scaled Score': i['mscaleds'], 'CPI': i['mcpi']},
                   {'TestType': 'MCAS Science', 'Date': '06-01', 'Subject': 'Science', 'Performance': i['sperf2'], 'Scaled Score': i['sscaleds'], 'CPI': i['scpi']}]
@@ -25,7 +29,7 @@ def filetransformer(filepath, filename, newfilepath):
             newrow['StudentGradeLevel'] = i['stugrade']
             newrow['TestDate'] = j['Date']
             newrow['TestName'] = 'Macs'
-            newrow['TestTypeName'] = j['Name']
+            newrow['TestTypeName'] = j['TestType']
             newrow['TestSubjectName'] = j['Subject']
             newrow['TestGradeLevel'] = i['stugrade']
             newrow['Score1Label'] = 'Performance Level'
