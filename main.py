@@ -15,9 +15,9 @@ def filetransformer(filepath, filename, newfilepath):
 
     dataset = []
     for i in file1:
-        testds = [{'TestType': 'MCAS ELA', 'Date': '04-01', 'Subject': 'Ela', 'Performance': i['eperf2'], 'Scaled Score': i['escaleds'], 'CPI': i['ecpi']},
-                  {'TestType': 'MCAS Math', 'Date': '05-01', 'Subject': 'Math', 'Performance': i['mperf2'], 'Scaled Score': i['mscaleds'], 'CPI': i['mcpi']},
-                  {'TestType': 'MCAS Science', 'Date': '06-01', 'Subject': 'Science', 'Performance': i['sperf2'], 'Scaled Score': i['sscaleds'], 'CPI': i['scpi']}]
+        testds = [{'TestType': 'MCAS ELA', 'Date': '04-01', 'Subject': 'Ela', 'Performance': i['eperf2'], 'ScaledScore': i['escaleds'], 'CPI': i['ecpi']},
+                  {'TestType': 'MCAS Math', 'Date': '05-01', 'Subject': 'Math', 'Performance': i['mperf2'], 'ScaledScore': i['mscaleds'], 'CPI': i['mcpi']},
+                  {'TestType': 'MCAS Science', 'Date': '06-01', 'Subject': 'Science', 'Performance': i['sperf2'], 'ScaledScore': i['sscaleds'], 'CPI': i['scpi']}]
 
 # Create loop within a loop to filter through conditions and grab the data we are calling
 
@@ -67,6 +67,7 @@ def filetransformer(filepath, filename, newfilepath):
 
     df = pd.DataFrame(dataset)
     df.to_csv(newfilepath + '/' + filename[:-4] + '-processed.csv')
+    print('File finished')
     return df
 
 
