@@ -5,7 +5,10 @@ import pandas as pd
 import csv
 
 
-def filetransformer(filepath, filename, newfilepath):
+def filetransformer(file):
+    filepath = file[0]
+    filename = file[1]
+    newfilepath = file[2]
     print('File starting')
     filep_filen = filepath + '/' + filename
     file1 = pd.read_csv(filep_filen)

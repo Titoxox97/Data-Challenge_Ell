@@ -4,19 +4,19 @@ from main import filetransformer
 from multiprocessing.pool import ThreadPool
 
 # Define Variables
-inputfile_path_ = "C:/Users/matia/OneDrive/Desktop/Ellevation-Data-Question"
+inputfile_path_ = "C:/Users/User/FilePath"
 
 
-inputfile_name_ = ['sample-mcas.csv', 'sample-mcas.csv', 'sample-mcas.csv', 'sample-mcas.csv']
+inputfile_name_ = ['Filename1', 'Filename2', 'Filename3', ...]
 
 
-outputfile_path_ = "C:/Users/matia/function_output"
+outputfile_path_ = "C:/Users/User/FileFolder"
 
 #### For 100 - 1000 files ####
 
 # Declare the number of threads to use for running function in parallel
 
-pool = ThreadPool(processes=2)
+pool = ThreadPool(processes=4)
 
 inputlist_ = []
 for i in inputfile_name_:
