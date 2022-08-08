@@ -4,7 +4,7 @@
 import pandas as pd
 import csv
 
-
+# Create function using only local variables
 def filetransformer(file):
     filepath = file[0]
     filename = file[1]
@@ -31,7 +31,7 @@ def filetransformer(file):
             newrow['StudentTestId'] = i['sasid']
             newrow['StudentGradeLevel'] = i['stugrade']
             newrow['TestDate'] = j['Date']
-            newrow['TestName'] = 'Macs'
+            newrow['TestName'] = 'MCAS'
             newrow['TestTypeName'] = j['TestType']
             newrow['TestSubjectName'] = j['Subject']
             newrow['TestGradeLevel'] = i['stugrade']
